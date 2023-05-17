@@ -542,9 +542,11 @@ void init_game(sdl_form* form, glm::vec2 size, int keyms)
 						break;
 					}
 
+					double nw1 = nw;
 					glm::ivec2 ps = pos;
 					static glm::ivec2 lastps = {};
-					static int step = nw * 1;
+					static int step = nw1 * 1;
+					static int step1 = nw1 * 0.5;
 					if (t == 0)
 						lastps = pos;
 					int x = ps.x - lastps.x;
@@ -575,7 +577,7 @@ void init_game(sdl_form* form, glm::vec2 size, int keyms)
 								ix = 1; 
 							}
 						}
-						else if (y - step > 0)
+						else if (y - step1 > 0)
 						{
 							// 下
 							ix = 3;
