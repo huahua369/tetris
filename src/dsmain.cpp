@@ -567,17 +567,15 @@ void init_game(sdl_form* form, glm::vec2 size, int keyms)
 							if (x - step > 0)
 							{
 								// 右
-								ix = 2;
-								lastps = pos;
+								ix = 2; 
 							}
 							if (x + step < 0)
 							{
 								// 左
-								ix = 1;
-								lastps = pos;
+								ix = 1; 
 							}
 						}
-						else if (y > 0)
+						else if (y - step > 0)
 						{
 							// 下
 							ix = 3;
@@ -592,7 +590,10 @@ void init_game(sdl_form* form, glm::vec2 size, int keyms)
 						}
 					}
 					if (ix >= 0)
+					{
+						lastps = pos;
 						_game->onkey(k[ix]);
+					}
 					_game->jt = 0;
 
 				} while (0);
